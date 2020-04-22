@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--必须指定当前映射的文件名-->
+<mapper namespace="org.hzl.dao.FoodinfoDao">
+
+    <!--重用的SQL块 id名称-->
+    <sql id="table" >
+         select * from foodinfo
+    </sql>
+
+    <!--所有数据-->
+    <select id="allFood" resultType="Foodinfo">
+        --         引用这个sql块  refid定义的名称id
+        <include refid="table"/>
+    </select>
+
+    <select id="findFoodid" parameterType="int" resultType="Foodinfo">
+        --         引用这个sql块  refid定义的名称id
+        <include refid="table"/> where  foodId=#{foodId}
+    </select>
+
+
+    <select id="foodLike" resultType="Foodinfo">
+        --         引用这个sql块  refid定义的名称id
+        <include refid="table"/>
+        <where>
+            <if test="foodName != null">
+                foodName like  concat('%',#{foodName},'%')
+            </if>
+        </where>
+    </select>
+
+
+    <update id="update" parameterType="Foodinfo">
+     UPDATE foodinfo SET foodName=#{foodName},remark=#{remark} ,foodPrice=#{foodPrice},description=#{description},foodImage=#{foodImage}
+     WHERE foodId=#{foodId}
+    </update>
+    <insert id="insert" parameterType="Foodinfo">
+     INSERT INTO foodinfo (foodName,remark,foodPrice,description,foodImage)
+     VALUES(#{foodName},#{remark},#{foodPrice},#{description},#{foodImage})
+    </insert>
+
+
+    <delete id="delete" parameterType="int">
+     DELETE  FROM foodinfo WHERE foodId=#{foodId}
+    </delete>
+</mapper>

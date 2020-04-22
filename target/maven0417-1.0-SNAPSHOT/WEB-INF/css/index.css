@@ -1,0 +1,24 @@
+body,h1,table{
+    /*margin:0;*/
+    /*padding: 0;*/
+}
+.dv{
+    width: 400px;
+    height: 350px;
+    margin: 0px auto;
+    border:8px solid royalblue;
+}
+
+.dv table{
+    width:300px;
+    margin-left: 50px;
+    /*表格的实线*/
+    border-collapse: collapse;
+}
+
+tr,th,td{
+    width: 60px;
+    line-height: 30px;
+    text-align: center;
+}
+

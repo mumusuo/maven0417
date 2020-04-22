@@ -1,0 +1,31 @@
+body,h1,table{
+    /*margin:0;*/
+    /*padding: 0;*/
+}
+.dv{
+    width: 800px;
+    /*height: 350px;*/
+    margin: 0px auto;
+    border:2px solid royalblue;
+   overflow: hidden;
+}
+
+.dv table{
+    width:750px;
+    margin-left: 25px;
+    /*表格的实线*/
+    border-collapse: collapse;
+}
+
+tr,th,td{
+    width:35px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+tr td a{
+    text-decoration: none;
+    color:brown;
+    font-size: 8px;
+}
